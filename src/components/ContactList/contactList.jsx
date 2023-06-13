@@ -2,15 +2,14 @@ import css from './contactList.module.css';
 import { Item } from '../ContactListOne/contactListOne';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts, getContacts } from 'redux/contactsSlice';
-import { getFilter } from 'redux/filterSlice';
+import { deleteContacts } from 'redux/contactsSlice';
+import { getFilter, getContacts } from 'redux/selectors';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
 
   const getVisibleContacts = (contacts, filter) => {
-        console.log(contacts);
-      return contacts.filter(contact =>
+    return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter)
     );
   };
